@@ -19,7 +19,7 @@ action.onclick = function () {
     newresults.setAttribute("id", "swapme");
 
     let his_heading = document.createElement("h4");
-    his_heading.appendChild(document.createTextNode('History: '))
+    his_heading.appendChild(document.createTextNode('History: (click on these to see magic)'))
     resultsdiv.appendChild(his_heading);
     cont+=1;
     if (cont>1) {
