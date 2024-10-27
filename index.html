@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Simple calculator</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h2 id="title">Calculator </h2>
+        <form>
+            <label for="numbers"><input placeholder="0" type="text" id="numbers"></label>
+        </form>
+        
+        <button  class="submit" id="c"> C </button>
+        <button  id ="submit" class="submit"> = </button>
+        
+        <div id="guide">
+            <h4>Instuctions:</h4>
+            <p>To use this calculator with its full features please read these guide lines:</p>
+            <ul>
+                <li>
+                    You can click on any history expresion to paset directly it into input area( click on 34+546+546 in history will pase it 
+                    into input area similary = 6546 .).
+                </li>
+                <li>
+                    These guidelines will disapper as you start calculating
+                </li>
+                <li>If you hit = without entring a value you will get a Surprise</li>
+            </ul>
+        </div>
+        <div id="result">
+            <div id="swapme"></div>
+        </div>
+        <div id="history">
+        </div>
+    
+        <script src="js.js"></script>
+    </body>
+</html>

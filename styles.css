@@ -1,0 +1,87 @@
+body {
+    background-color: rgb(3, 3, 27);
+    width: 90vw;
+    margin: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+input {
+    line-height: 2rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    width: 90vw;
+    margin: auto;
+    padding: .5rem;
+    overflow: scroll;
+
+}
+.submit {
+    margin:  1rem auto;
+    width: 7rem;
+    font-size: 2.5rem;
+    border-radius: 7px;
+    background-color: rgb(185, 161, 25);
+    padding: 0;
+   padding-left: 1.5rem;
+   padding-right: 1.5rem;
+    color: black;
+    text-align: center;
+    position: relative;
+   transition-property: background-color; left: calc(50vw - 11rem);
+   transition-duration: 3ms;
+
+}
+.submit:active {
+    transition-property: background-color;
+    transition-duration: 3ms;
+    background-color: lightgrey;
+}
+
+
+h2 {
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 7px;
+    background-color: white;
+    max-width: 15rem;
+    margin: .5rem, auto;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 3rem;
+    
+}
+
+p {
+    background-color: lightgrey;
+    border-radius: 5px;
+    line-height: 1.4rem;
+    margin: 0.05rem;
+    padding-left: .5rem;
+    padding: .5rem;
+    overflow-wrap: break-word;
+}
+.right-contant:hover, .left-contant:hover {
+    background-color: lightpink;
+    padding: .5rem, 1rem;
+}
+h3 {
+    text-align:  center;
+    background-color: beige;
+    padding: .3rem;
+    overflow-wrap: break-word;
+    
+}
+h4 {
+    color: white;
+}
+#history {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.left-contant, .right-contant {
+    padding: .4rem;
+    border-radius: 7px;
+}
+li {
+    color: wheat;
+}
+
