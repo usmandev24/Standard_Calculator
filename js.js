@@ -91,21 +91,21 @@ function getlist() {
 }
 function m_dfirst(orgdata){
     for(let i= 0; i<orgdata.length ; i++){
-        if (orgdata[i+1]!=="(" && orgdata[i-1]!== ")"){
             if(orgdata[i]==="*" || orgdata[i]=== "/"){
                 if(orgdata[i]==="*"){
                     let replace = orgdata[i-1] * orgdata[i+1];
                     orgdata.splice(i-1,3, replace);
+                    i=i-1;
                 }
                 else if(orgdata[i]==="/"){
                     let replace = orgdata[i-1] / orgdata[i+1];
                     orgdata.splice(i-1,3, replace);
+                    i=i-1;
                 }
-            }
         }
     }
     return orgdata
-}    
+}
 function addOrMinus(orgdata){
     let result=0;
     for(let i=0; i<orgdata.length; i++){
@@ -133,6 +133,5 @@ function addOrMinus(orgdata){
         result=`Deveolped by "USMAN GHANI" usman.dev24@gmail.com`
     }
     return result
-
 }
        
