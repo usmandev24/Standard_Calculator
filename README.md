@@ -1,2 +1,2 @@
-# Standred_Calculator
- A standerd calculator with averge feateures
+# Standard_Calculator
+this is a standard calculator with maximum features
