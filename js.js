@@ -115,7 +115,7 @@ function getlist() {
                 data.push(input[i]);
                 round=0;
                 num="";
-                if(input[i]!=="*" || input[i]!=="/"){
+                if(input[i]!=="*" && input[i]!=="/"&& input[i]!=="+" && input[i]!=="-"){
                     break;
                 }
             }
