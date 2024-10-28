@@ -53,7 +53,7 @@ action.onclick = function () {
 }
 let clear = document.getElementById("c");
 clear.onclick = function() {
-    document.getElementById("numbers").value = null;
+    document.getElementById("numbers").value = 0;
 }
 function calculate() {
     let data= getlist()
@@ -69,7 +69,7 @@ function getlist() {
     let num="";
     let round= 0;
     for(let i= 0; i<input.length; i++) {
-        if (parseFloat(input[i]) / parseFloat(input[i]) === 1 || input[i]==="." || parseFloat(input[i])===0) {
+        if (parseFloat(input[i]) / 1 === parseFloat(input[i])  || input[i]===".") {
             num+=input[i]
             round=0;
         }
@@ -81,7 +81,7 @@ function getlist() {
             }
             data.push(input[i])
             }
-        if (i === input.length -1 && parseFloat(input[i]) / parseFloat(input[i]) === 1 ) {
+        if (i === input.length -1 && parseFloat(input[i]) / 1 === parseFloat(input[i])) {
             data.push(parseFloat(num))
             num=""; 
         }
@@ -115,11 +115,11 @@ function addOrMinus(orgdata){
         else if(i=== 0 &&  orgdata[i]=== "-" ){
             result-=orgdata[i+1]
         }
-        else if(i===0 && orgdata[i]!== "-" && orgdata[i]!== "+" && orgdata[i]/orgdata[i]!== 1){
+        else if(i===0 && orgdata[i]!== "-" && orgdata[i]!== "+" && orgdata[i]/1 !== orgdata[i]){
             result= `Error`;
             break;
         }
-        else if(i===0 && orgdata[i]/orgdata[i]=== 1){
+        else if(i===0 && orgdata[i]/1=== orgdata[i]){
             result+=orgdata[i]
         }
         else if(orgdata[i]==="+"){

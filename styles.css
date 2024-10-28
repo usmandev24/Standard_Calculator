@@ -122,4 +122,15 @@ h4 {
 li {
     color: wheat;
 }
-
+@media only screen and (max-width: 320px) {
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+@media only screen and (max-width: 500px) {
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+}
