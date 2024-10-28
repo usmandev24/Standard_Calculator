@@ -7,25 +7,25 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h2 id="title">Calculator </h2>
+        <h1 id="title">Standard Calculator </h1>
         <form>
             <label for="numbers"><input placeholder="0" type="text" id="numbers"></label>
         </form>
-        
+        <div id="button">
         <button  class="submit" id="c"> C </button>
         <button  id ="submit" class="submit"> = </button>
-        
+        </div>
         <div id="guide">
-            <h4>Instuctions:</h4>
-            <p>Please read these guide lines:</p>
+            <h4></h4>
+            <p id="int">Please read these guide lines:</p>
             <ul>
                 <li>
-                    You can click on any history expresion to paset directly it into input field.
+                    You can click on any history expression to paset it directly into input field.
                 </li>
                 <li>
                     These guidelines will disapper as you start calculating.
                 </li>
-                <li>If you hit = without entring a value you will get a Surprise(are you ready?)</li>
+                <li>If you hit<span class="bold"> = </span> without entring a value you will get a <i>Surprise</i> (Are you ready? )</li>
             </ul>
         </div>
         <div id="result">
