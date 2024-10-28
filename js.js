@@ -25,6 +25,7 @@ action.onclick = function () {
     if (cont>1) {
         resultsdiv.removeChild(his_heading);
     }
+if(result!=="Error"){
     let history = document.getElementById("history");
     let history_results = document.createElement("p");
     let results_sapn = document.createElement("span");
@@ -51,6 +52,7 @@ action.onclick = function () {
     history.appendChild(history_results);
     document.getElementById('numbers').value = result;
 }
+}
 let clear = document.getElementById("c");
 clear.onclick = function() {
     document.getElementById("numbers").value = 0;
@@ -69,20 +71,56 @@ function getlist() {
     let num="";
     let round= 0;
     for(let i= 0; i<input.length; i++) {
-        if (parseFloat(input[i]) / 1 === parseFloat(input[i])  || input[i]===".") {
-            num+=input[i]
-            round=0;
-        }
-        else {
-            if (round<1 && i!==0)  {
-                data.push(parseFloat(num))
-                num="";
+        if (parseFloat(input[i]) / 1 === parseFloat(input[i])  || input[i]==="." || input[i]==="-" || input[i]==="+") {
+            if(parseFloat(input[i]) / 1 === parseFloat(input[i]) || input[i]==="."){
+                num+=input[i]
                 round=1;
             }
-            data.push(input[i])
+            else if(input[i]==="-"){
+                if(round!==0){
+                    data.push(parseFloat(num))
+                }
+                num="-";
+                round=0;
+                if(input[i-1]==="-"){
+                    num="error";
+                    round=1;
+                }
+                else if(i===1 && input[i-1]==="+" || i===1 && input[i-1]==="-" ){
+                    num="error";
+                    round=1;
+                }
             }
-        if (i === input.length -1 && parseFloat(input[i]) / 1 === parseFloat(input[i])) {
-            data.push(parseFloat(num))
+            else if(input[i]==="+"){
+                if(round!==0){
+                    data.push(parseFloat(num));
+                    }
+                num="+";
+                round=0;
+                if(input[i-1]==="-" && i>1) {
+                    num="-"
+                    round=1;
+                }
+                else if(input[i-1]==="+" && i>1){
+                    num="+";
+                    round=1;
+                }else if(i===1 && input[i-1]==="+" || i===1 && input[i-1]==="-" ){
+                    num="error";
+                    round=1;
+                }
+            }
+        }
+        else {
+                data.push(parseFloat(num));
+                data.push(input[i]);
+                round=0;
+                num="";
+                if(input[i]!=="*" || input[i]!=="/"){
+                    break;
+                }
+            }
+        if (i === input.length-1 && parseFloat(input[i]) / 1 === parseFloat(input[i])) {
+            data.push(parseFloat(num));
             num=""; 
         }
     }
@@ -91,42 +129,31 @@ function getlist() {
 }
 function m_dfirst(orgdata){
     for(let i= 0; i<orgdata.length ; i++){
-            if(orgdata[i]==="*" || orgdata[i]=== "/"){
-                if(orgdata[i]==="*"){
-                    let replace = orgdata[i-1] * orgdata[i+1];
-                    orgdata.splice(i-1,3, replace);
-                    i=i-1;
-                }
-                else if(orgdata[i]==="/"){
-                    let replace = orgdata[i-1] / orgdata[i+1];
-                    orgdata.splice(i-1,3, replace);
-                    i=i-1;
-                }
-        }
+        if(orgdata[i]==="*" || orgdata[i]=== "/"){
+            if(orgdata[i]==="*"){
+                let replace = orgdata[i-1] * orgdata[i+1];
+                orgdata.splice(i-1,3, replace);
+                i=i-1;
+            }
+            else if(orgdata[i]==="/"){
+                let replace = orgdata[i-1] / orgdata[i+1];
+                orgdata.splice(i-1,3, replace);
+                i=i-1;
+            }
+        } 
     }
     return orgdata
 }
 function addOrMinus(orgdata){
     let result=0;
     for(let i=0; i<orgdata.length; i++){
-        if(i=== 0 &&  orgdata[i]=== "+" ){
-            result=orgdata[i+1]
-        }
-        else if(i=== 0 &&  orgdata[i]=== "-" ){
-            result-=orgdata[i+1]
-        }
-        else if(i===0 && orgdata[i]!== "-" && orgdata[i]!== "+" && orgdata[i]/1 !== orgdata[i]){
+        if(orgdata[i]!== "-" && orgdata[i]!== "+" && orgdata[i]/1 !== orgdata[i]){
             result= `Error`;
+            alert(`\n Please Enter Numbers Only!\n OR Check " ( + -  *  /  ) "  are in right position.`)
             break;
         }
-        else if(i===0 && orgdata[i]/1=== orgdata[i]){
+        else {
             result+=orgdata[i]
-        }
-        else if(orgdata[i]==="+"){
-            result+=orgdata[i+1]
-        }
-        else if(orgdata[i]==="-"){
-            result-=orgdata[i+1]
         }
     }
     if(orgdata.length == 0){
