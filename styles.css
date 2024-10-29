@@ -16,6 +16,9 @@ input {
     overflow: scroll;
 
 }
+b {
+    color: rgb(250, 242, 227);
+}
 h1 {
     color: rgb(237, 231, 223);
     text-align: center;
