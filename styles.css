@@ -104,6 +104,7 @@ h3 {
     width: fit-content;
     border-radius: 6px;
     margin: auto;
+    max-width: 90vw;
     
 }
 h4 {
